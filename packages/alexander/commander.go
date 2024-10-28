@@ -2,7 +2,6 @@ package alexander
 
 import (
 	"errors"
-	"fmt"
 )
 
 type Commander struct {
@@ -26,9 +25,7 @@ func (c *Commander) Register(cmd Command) error {
 
 func (c *Commander) Execute(commandName string, params Parameters) error {
     cmd, exists := c.commands[commandName]
-    for name := range c.commands {
-        fmt.Println(name)
-    }
+
     if !exists {
         return errors.New("unknown command: " + commandName)
     }

@@ -3,7 +3,8 @@ package main
 import (
 	"demago/kernel"
 	"demago/packages/alexander"
-	"demago/packages/bootstrap/commands"
+	bootstrap_commands "demago/packages/bootstrap/commands"
+	migration_commands "demago/packages/migration/commands"
 	"fmt"
 	"os"
 )
@@ -16,7 +17,8 @@ func main() {
 	commandsProvider := &kernel.CommandProvider{}
 	commander := alexander.NewCommander()
 	
-	commander.Register(commands.ServeCommand())
+	commander.Register(bootstrap_commands.ServeCommand())
+	commander.Register(migration_commands.MigrateCommand())
 
 	commandName := os.Args[1]
     args := os.Args[2:]
