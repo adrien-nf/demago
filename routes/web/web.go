@@ -20,7 +20,7 @@ func SetupRoutes(r *routing.RouteGroup) *routing.RouteGroup {
     })
 
     r.Group("/tests", func(r *routing.RouteGroup) {
-        r.Get("/icules", func(w http.ResponseWriter, r *http.Request) {
+        r.Get("/subtests", func(w http.ResponseWriter, r *http.Request) {
             fmt.Fprintf(w, "BLAH BLAH BLAH")
         })
     })
